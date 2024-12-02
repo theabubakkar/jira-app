@@ -1,0 +1,15 @@
+services:
+  frontend:
+    build: .
+    ports:
+      - '3000:80'
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./server
+    expose:
+      - '5000'
+    environment:
+      JIRA_ACCESS_TOKEN: "ACCESS_TOKEN_HERE"
